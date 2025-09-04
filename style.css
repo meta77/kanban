@@ -1,0 +1,138 @@
+/* --- 全体のスタイル --- */
+body {
+    background-color: #f4f7f9;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* --- カンバンボード全体のコンテナ --- */
+.kanban-board {
+    display: flex;
+    gap: 20px; /* リスト間の余白 */
+    overflow-x: auto; /* 横スクロールを可能にする */
+    padding-bottom: 20px;
+}
+
+/* --- リスト（カラム）のスタイル --- */
+.task-list {
+    background-color: #e2e4e6;
+    border-radius: 8px;
+    width: 300px;
+    min-width: 300px; /* 幅が縮まないようにする */
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* --- 見出しのデザイン (https://pote-chil.com/css-stock/ja/headline/simple-headline/ より) --- */
+.task-list-header h2 {
+    font-size: 18px;
+    color: #333;
+    padding: 0.25em 0.5em;/*上下 左右*/
+    border-left: solid 5px #7db4e6;/*左線*/
+    margin: 0;
+}
+
+
+/* --- タスクカードのコンテナ --- */
+.task-cards {
+    flex-grow: 1; /* コンテナ内で高さを最大限に広げる */
+    min-height: 100px; /* ドロップ領域を確保 */
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.task-cards.drag-over {
+    background-color: #d6d9dc; /* ドラッグ中の背景色 */
+}
+
+/* --- タスクカードのスタイル --- */
+.task-card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    cursor: grab;
+    transition: box-shadow 0.2s;
+}
+
+.task-card:active {
+    cursor: grabbing;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.task-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.task-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* --- フォームとボタンのスタイル --- */
+.add-task-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* --- フォームのデザイン (https://pote-chil.com/css-stock/ja/parts/form/ より) --- */
+.add-task-form input[type="text"] {
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* --- ボタンのデザイン (https://pote-chil.com/css-stock/ja/parts/button/ より) --- */
+.button-solid {
+    display: inline-block;
+    padding: 0.8em 2em;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button-solid:hover {
+    background: #0056b3;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-size: 18px;
+}
+.delete-button:hover {
+    color: #333;
+}
+
