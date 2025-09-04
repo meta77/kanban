@@ -1,14 +1,22 @@
 /* --- 全体のスタイル --- */
+html, body {
+    height: 100%; /* HTMLとBodyを画面の高さに合わせる */
+    margin: 0;
+    overflow: hidden; /* ページ全体のスクロールを無効化 */
+}
+
 body {
     background-color: #f4f7f9;
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-    margin: 0;
-    padding: 20px;
+    display: flex;
+    flex-direction: column; /* 全体を縦に並べるフレックスボックスにする */
 }
 
 h1 {
     text-align: center;
     color: #333;
+    margin: 20px 0;
+    flex-shrink: 0; /* ヘッダーが縮まないようにする */
 }
 
 /* --- カンバンボード全体のコンテナ --- */
@@ -16,7 +24,9 @@ h1 {
     display: flex;
     gap: 20px; /* リスト間の余白 */
     overflow-x: auto; /* 横スクロールを可能にする */
-    padding-bottom: 20px;
+    padding: 0 20px 20px 20px;
+    flex-grow: 1; /* 利用可能な残りの高さをすべて使う */
+    min-height: 0; /* flexアイテムの縮小問題を回避 */
 }
 
 /* --- リスト（カラム）のスタイル --- */
@@ -25,17 +35,18 @@ h1 {
     border-radius: 8px;
     width: 300px;
     min-width: 300px; /* 幅が縮まないようにする */
-    padding: 15px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
+    max-height: 100%; /* 親要素の高さを超えないようにする */
 }
 
 .task-list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    padding: 15px;
+    flex-shrink: 0; /* ヘッダーが縮まないようにする */
 }
 
 /* --- 見出しのデザイン (https://pote-chil.com/css-stock/ja/headline/simple-headline/ より) --- */
@@ -51,10 +62,11 @@ h1 {
 /* --- タスクカードのコンテナ --- */
 .task-cards {
     flex-grow: 1; /* コンテナ内で高さを最大限に広げる */
-    min-height: 100px; /* ドロップ領域を確保 */
-    padding: 5px;
+    overflow-y: auto; /* タスクがはみ出たら縦スクロール */
+    padding: 0 15px 10px 15px;
     border-radius: 5px;
     transition: background-color 0.2s;
+    min-height: 50px; /* ドロップ領域を確保 */
 }
 
 .task-cards.drag-over {
@@ -91,7 +103,9 @@ h1 {
 
 /* --- フォームとボタンのスタイル --- */
 .add-task-form {
-    margin-top: 15px;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+    flex-shrink: 0; /* フォームが縮まないようにする */
     display: flex;
     flex-direction: column;
     gap: 10px;
