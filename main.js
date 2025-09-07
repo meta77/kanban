@@ -5,6 +5,17 @@ import TaskCard from './components/TaskCard.js';
 // Vueアプリケーションを作成
 const app = Vue.createApp(KanbanBoard); // 一番の親、ベースとなるコンポーネントの登録。「ルートコンポーネント」と呼ぶ。
 
+/*
+コンポーネントのツリー図
+KanbanBoard (ルートコンポーネント、一番の親)
+├── TaskList (子コンポーネント)
+│   ├── TaskCard (孫コンポーネント)
+│   └── TaskCard (孫コンポーネント)
+├── TaskList (子コンポーネント)
+│   └── TaskCard (孫コンポーネント)
+└── TaskList (子コンポーネント)
+*/
+
 
 // 各コンポーネントをグローバルに登録
 // これにより、どのコンポーネントのテンプレート内でもこれらのタグが使えるようになる
