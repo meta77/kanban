@@ -1,8 +1,9 @@
 // KanbanBoard.js: カンバンボード全体を管理するコンポーネント
 
 export default {
-    // コンポーネントのテンプレート (HTML)
-    template: `
+    // コンポーネントのテンプレート (HTML)。見た目。
+    // JavaScriptファイルの中にHTMLを書くための特別な書き方だと思ってください。
+    template: ` // JavaScriptファイルの中にHTMLを書くための特別な書き方だと思ってください。
         <div>
             <h1>Vue.js カンバンボード</h1>
             <div class="kanban-board">
