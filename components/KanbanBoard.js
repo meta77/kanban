@@ -2,7 +2,7 @@
 
 export default {
     // コンポーネントのテンプレート (HTML)。見た目。
-    // JavaScriptファイルの中にHTMLを書くための特別な書き方だと思ってください。
+    // ` ` JavaScriptファイルの中にHTMLを書くための特別な書き方.
     template: ` // JavaScriptファイルの中にHTMLを書くための特別な書き方だと思ってください。
         <div>
             <h1>Vue.js カンバンボード</h1>
@@ -11,8 +11,8 @@ export default {
                 <task-list
                     v-for="list in lists"
                     :key="list.id"
-                    :list="list"
-                    @add-task="handleAddTask"
+                    :list="list" <!-- 親から子へデータを渡す (Props) -->
+                    @add-task="handleAddTask" <!-- 子から親への通知を受け取る (Event) -->
                     @move-task="handleMoveTask"
                 ></task-list>
             </div>
