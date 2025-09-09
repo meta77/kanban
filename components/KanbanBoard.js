@@ -12,8 +12,8 @@ export default {
                 <task-list
                     v-for="list in lists"
                     :key="list.id"
-                    :list="list" <!-- 親から子へデータを渡す (Props) -->
-                    @add-task="handleAddTask" <!-- 子から親への通知を受け取る (Event) -->
+                    :list="list"
+                    @add-task="handleAddTask"
                     @move-task="handleMoveTask"
                 ></task-list>
             </div>
