@@ -43,9 +43,14 @@ export default {
                     id: 3,
                     title: 'Done',
                     tasks: []
+                },
+                {
+                    id: 4,
+                    title: 'Hold',
+                    tasks: []
                 }
             ],
-            nextTaskId: 4, // 次に追加するタスクのID
+            nextTaskId: 5, // 次に追加するタスクのID
         }
     },
     // コンポーネントが持つメソッド (振る舞い)
