@@ -4,7 +4,7 @@ export default {
     // コンポーネントのテンプレート (HTML)。見た目。
     // ` ` JavaScriptファイルの中にHTMLを書くための特別な書き方.
     // データと見た目を連動させ、さらに親子間のデータのやり取りを宣言的に書けるのが、Vue.jsの大きな特徴
-    template: ` // JavaScriptファイルの中にHTMLを書くための特別な書き方だと思ってください。
+    template: `
         <div>
             <h1>Vue.js カンバンボード</h1>
             <div class="kanban-board">
