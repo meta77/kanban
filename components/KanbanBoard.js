@@ -16,6 +16,7 @@ export default {
                     @add-task="handleAddTask"
                     @move-task="handleMoveTask"
                 ></task-list>
+                <!-- :key, :listは親から子へデータ渡し。@は子から親へのイベント通知 -->
             </div>
         </div>
     `,
