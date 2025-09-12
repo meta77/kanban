@@ -50,7 +50,7 @@ export default {
                     tasks: []
                 }
             ],
-            nextTaskId: 5,    // 次に追加するタスクのID
+            // nextTaskId: 5,    // 次に追加するタスクのID
             // nextTaskId: this.lists.length + 1　という書き方はエラー。computedを使う必要がある。
         }
     },
