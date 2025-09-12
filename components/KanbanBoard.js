@@ -54,6 +54,11 @@ export default {
             // nextTaskId: this.lists.length + 1　という書き方はエラー。computedを使う必要がある。
         }
     },
+    computed: {
+        nextTaskId() {
+            return this.lists.length;
+        }
+    },
     // コンポーネントが持つメソッド (振る舞い)
     methods: {
         // 子コンポーネントから 'add-task' イベントがemitされたときに呼ばれる
