@@ -58,7 +58,6 @@ export default {
             return this.lists.length;
         }
     },
-    // コンポーネントが持つメソッド (振る舞い)
     methods: {
         // 子コンポーネントから 'add-task' イベントがemitされたときに呼ばれる
         handleAddTask(newTask) {
