@@ -92,6 +92,21 @@ export default {
                 toList.tasks.push(movedTask);
             }
         }
+        /*
+        この handleMoveTask 関数の処理の流れは、まさに引越し作業そのものです。
+
+        依頼書を受け取る ({ taskId, fromListId, toListId })
+
+        元の部屋を探す (find fromList)
+
+        部屋の中の荷物の位置を探す (findIndex taskIndex)
+
+        荷物を部屋から抜き取って手に持つ (splice と movedTask)
+
+        新しい部屋を探して、そこに荷物を置く (find toList と push)
+
+        この一連の処理によって、親コンポーネントが管理している大元のデータ (this.lists) が正確に更新され、画面の表示も自動的に正しく変更されるのです。
+        */
     }
 };
 
