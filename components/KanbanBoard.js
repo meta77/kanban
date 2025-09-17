@@ -66,7 +66,7 @@ export default {
             if (targetList) {
                 // 新しいタスクを追加
                 targetList.tasks.push({
-                    id: this.nextTaskId++,
+                    id: this.nextTaskId++, // 現在のnextTaskIdの値を代入。その後、+1する。
                     title: newTask.title,
                     description: '', // 簡単のため説明は空に
                 });
