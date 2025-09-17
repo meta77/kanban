@@ -49,7 +49,7 @@ export default {
                     tasks: []
                 }
             ],
-            // nextTaskId: 5,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
+            nextTaskId: 4,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
             // nextTaskId: this.lists.length + 1　という書き方はエラー。computedを使う必要がある。
         }
     },
