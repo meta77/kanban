@@ -54,7 +54,7 @@ export default {
         }
     },
     computed: {
-        nextTaskId() {
+        nextTaskIdC() { // data()の中に、nextTaskIdを置く形でいいことに気がついた。
             return this.lists.length;
         }
     },
