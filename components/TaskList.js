@@ -8,6 +8,13 @@ export default {
             required: true,
         },
     },
+
+    /*
+    普段は task-list として静かに表示されている。
+    タスクが上空に飛んでくると (@dragover)、「着陸OK！」の合図を出し (.prevent)、歓迎のライトアップ（:classで見た目を変更）の準備を始める (handleDragOver)。
+    タスクが無事に着陸した瞬間 (@drop)、司令室（親コンポーネント）に報告するための処理 (handleDrop) を実行する。
+    */
+   
     template: `
         <div
             class="task-list"
