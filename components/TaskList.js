@@ -4,7 +4,7 @@ export default {
     // 親コンポーネントから受け取るデータ (プロパティ)
     props: {
         list: {
-            type: Object,
+            type: Object, // オブジェクトしか受け付けない。{ id: 1, title: 'TODO', tasks: [...] }という形式のみ。
             required: true,
         },
     },
