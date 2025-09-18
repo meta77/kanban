@@ -8,7 +8,6 @@ export default {
             required: true,
         },
     },
-    // コンポーネントのテンプレート (HTML)
     template: `
         <div
             class="task-list"
