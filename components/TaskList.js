@@ -14,7 +14,7 @@ export default {
     タスクが上空に飛んでくると (@dragover)、「着陸OK！」の合図を出し (.prevent)、歓迎のライトアップ（:classで見た目を変更）の準備を始める (handleDragOver)。
     タスクが無事に着陸した瞬間 (@drop)、司令室（親コンポーネント）に報告するための処理 (handleDrop) を実行する。
     */
-   
+
     template: `
         <div
             class="task-list"
@@ -24,7 +24,6 @@ export default {
         >
             <div class="task-list-header">
                 <h2>{{ list.title }}</h2>
-                <button class="delete-button">×</button>
             </div>
 
             <!-- task-cardコンポーネントをタスクの数だけ繰り返し表示 -->
