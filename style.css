@@ -5,11 +5,24 @@ html, body {
     overflow: hidden; /* ページ全体のスクロールを無効化 */
 }
 
+/* ★追加: Vueアプリの土台も高さを100%にする */
+#app {
+    height: 100%;
+}
+
 body {
     background-color: #f4f7f9;
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
     display: flex;
     flex-direction: column; /* 全体を縦に並べるフレックスボックスにする */
+}
+
+/* ★追加: KanbanBoardコンポーネント自身をFlexboxコンテナにする */
+.kanban-board-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f4f7f9;
 }
 
 h1 {
@@ -31,7 +44,7 @@ h1 {
 
 /* --- リスト（カラム）のスタイル --- */
 .task-list {
-    background-color: #e2e4e6;
+    background-color: #e8e8e8;
     border-radius: 8px;
     width: 300px;
     min-width: 300px; /* 幅が縮まないようにする */
