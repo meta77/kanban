@@ -28,13 +28,20 @@ export default {
                     tasks: [
                         { id: 1, title: 'デザインを作成する', description: 'Figmaでワイヤーフレームを準備' },
                         { id: 2, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 3, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 4, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 5, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 6, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 7, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 8, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
+                        { id: 9, title: 'コンポーネント設計', description: 'Vueコンポーネントの親子関係を定義' },
                     ]
                 },
                 {
                     id: 2,
                     title: 'In Progress',
                     tasks: [
-                        { id: 3, title: 'HTML/CSSコーディング', description: '静的なページを作成' },
+                        { id: 10, title: 'HTML/CSSコーディング', description: '静的なページを作成' },
                     ]
                 },
                 {
@@ -48,7 +55,7 @@ export default {
                     tasks: []
                 }
             ],
-            nextTaskId: 4,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
+            nextTaskId: 11,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
             // nextTaskId: this.lists.length + 1　という書き方はエラー。computedを使う必要がある。
         }
     },
