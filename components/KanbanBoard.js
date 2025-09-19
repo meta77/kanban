@@ -4,7 +4,7 @@ export default {
     // ` ` JavaScriptファイルの中にHTMLを書くための特別な書き方.
     // データと見た目を連動させ、さらに親子間のデータのやり取りを宣言的に書けるのが、Vue.jsの大きな特徴
     template: `
-        <div>
+        <div class="kanban-board-container">
             <h1>Vue.js カンバンボード</h1>
             <div class="kanban-board">
                 <!-- task-listコンポーネントをリストの数だけ繰り返し表示 -->
@@ -15,7 +15,6 @@ export default {
                     @add-task="handleAddTask"
                     @move-task="handleMoveTask"
                 ></task-list>
-                <!-- :key, :listは親から子へデータ渡し。@は子から親へのイベント通知 -->
             </div>
         </div>
     `,
