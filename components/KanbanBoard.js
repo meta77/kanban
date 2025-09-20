@@ -52,10 +52,13 @@ export default {
                 {
                     id: 4,
                     title: 'Hold',
-                    tasks: []
+                    tasks: [
+                        { id: 11, title: 'HTML/CSSコーディング', description: '静的なページを作成' },
+                        { id: 12, title: 'HTML/CSSコーディング', description: '静的なページを作成' },
+                    ]
                 }
             ],
-            nextTaskId: 11,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
+            nextTaskId: 13,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
             // nextTaskId: this.lists.length + 1　という書き方はエラー。computedを使う必要がある。
         }
     },
