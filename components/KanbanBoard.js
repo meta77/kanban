@@ -5,7 +5,7 @@ export default {
     // データと見た目を連動させ、さらに親子間のデータのやり取りを宣言的に書けるのが、Vue.jsの大きな特徴
     template: `
         <div class="kanban-board-container">
-            <h1>Vue.js カンバンボード</h1>
+            <h1>Task</h1>
             <div class="kanban-board">
                 <!-- task-listコンポーネントをリストの数だけ繰り返し表示 -->
                 <task-list
