@@ -16,6 +16,27 @@ export default {
                     @move-task="handleMoveTask"
                 ></task-list>
             </div>
+
+
+            <div v-if="isModalOpen" class="modal-overlay" @click.self="handleCloseModal">
+                <div class="modal-content">
+                    <h2>新しいタスクを追加</h2>
+                    <form @submit.prevent="handleAddTask" class="modal-form">
+                        <div class="form-group">
+                            <label for="task-title">タスクのタイトル</label>
+                            <textarea id="task-title" v-model="newTaskTitle" required placeholder="タスクのタイトルを入力..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-description">説明</label>
+                            <textarea id="task-description" v-model="newTaskDescription" placeholder="タスクの詳細を入力..."></textarea>
+                        </div>
+                        <div class="form-actions-modal">
+                            <button type="button" @click="handleCloseModal" class="button-cancel">キャンセル</button>
+                            <button type="submit" class="button-solid">タスクを追加</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     `,
     // コンポーネントが持つデータ
@@ -60,6 +81,10 @@ export default {
             ],
             nextTaskId: 13,  // 次に追加するタスクのID →タスクが何を指すのか、勘違いしていたかも？
             // nextTaskId: this.lists.length + 1　という書き方はエラー。computedを使う必要がある。
+            isModalOpen: false, // ★モーダルの表示状態
+            newTaskTitle: '',   // ★モーダル内の新しいタスクのタイトル
+            newTaskDescription: '', // ★今後を見越して説明も追加
+            listIdForNewTask: null, // ★どのリストに追加するかを保持
         }
     },
     computed: {
@@ -68,21 +93,25 @@ export default {
         }
     },
     methods: {
-        // 子コンポーネントから 'add-task' イベントがemitされたときに呼ばれる
-        handleAddTask(newTask) {
+        // ★モーダルからタスクを追加する処理に変更
+        handleAddTask() {
+            // タイトルが空か、空白のみの場合は処理しない
+            if (this.newTaskTitle.trim() === '') return;
+
             // 対象のリストを見つける
-            const targetList = this.lists.find(list => list.id === newTask.listId);
+            const targetList = this.lists.find(list => list.id === this.listIdForNewTask);
             if (targetList) {
                 // 新しいタスクを追加
                 targetList.tasks.push({
-                    id: this.nextTaskId++, // 現在のnextTaskIdの値を代入。その後、+1する。
-                    title: newTask.title,
-                    description: '', // 簡単のため説明は空に
+                    id: this.nextTaskId++,
+                    title: this.newTaskTitle,
+                    description: this.newTaskDescription,
                 });
             }
+            // モーダルを閉じる
+            this.handleCloseModal();
         },
-
-        // ドラッグ＆ドロップによるタスク移動処理
+        // タスクを別のリストに移動する
         handleMoveTask({ taskId, fromListId, toListId }) {
             // 移動元のリストを探す
             const fromList = this.lists.find(list => list.id === fromListId);
@@ -92,7 +121,7 @@ export default {
             const taskIndex = fromList.tasks.findIndex(task => task.id === taskId);
             if (taskIndex === -1) return;
 
-            // タスクを移動元リストから削除
+            // タスクを移動元リストから削除し、変数に保持
             const [movedTask] = fromList.tasks.splice(taskIndex, 1);
 
             // 移動先のリストを探してタスクを追加
@@ -100,7 +129,19 @@ export default {
             if (toList) {
                 toList.tasks.push(movedTask);
             }
-        }
+        },
+        // ★モーダルを開くメソッド
+        handleOpenModal(listId) {
+            this.listIdForNewTask = listId;
+            this.isModalOpen = true;
+        },
+        // ★モーダルを閉じるメソッド
+        handleCloseModal() {
+            this.isModalOpen = false;
+            this.newTaskTitle = '';
+            this.newTaskDescription = '';
+            this.listIdForNewTask = null;
+        },
         /*
         この handleMoveTask 関数の処理の流れは、まさに引越し作業そのものです。
 
