@@ -11,24 +11,37 @@ export default {
                     tasks: [
                         { id: 1, title: 'デザインの初期案を作成', description: 'メインページのワイヤーフレームとモックアップを作成する。' },
                         { id: 2, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 3, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 4, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 5, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 6, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 7, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 8, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
                     ],
                 },
                 {
                     id: 2,
                     title: '進行中',
                     tasks: [
-                        { id: 3, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。' },
+                        { id: 9, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。' },
                     ],
                 },
                 {
                     id: 3,
                     title: '完了',
                     tasks: [
-                        { id: 4, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
+                        { id: 10, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
+                    ],
+                },
+                {
+                    id: 4,
+                    title: 'Hold',
+                    tasks: [
+                        { id: 11, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
                     ],
                 },
             ],
-            nextTaskId: 5,
+            nextTaskId: 12,
             isModalOpen: false, // ★モーダルの表示状態
             newTaskTitle: '',   // ★モーダル内の新しいタスクのタイトル
             newTaskDescription: '', // ★今後を見越して説明も追加
