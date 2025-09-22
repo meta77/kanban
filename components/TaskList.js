@@ -56,6 +56,7 @@ export default {
                     :key="task.id"
                     :task="task"
                     @dragstart="handleDragStart($event, task)"
+                    @click="$emit('open-edit-task-modal', task)"
                 ></task-card>
             </div>
 

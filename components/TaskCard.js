@@ -1,18 +1,24 @@
-// TaskCard.js: 個々のタスクカードを表すコンポーネント
-
 export default {
-    // 親コンポーネントから受け取るデータ
     props: {
         task: {
             type: Object,
             required: true,
         },
     },
-    // コンポーネントのテンプレート (HTML)
+    // ★ @click="$emit('click')" で親にクリックイベントを通知
     template: `
-        <div class="task-card" draggable="true">
-            <h3>{{ task.title }}</h3>
-            <p v-if="task.description">{{ task.description }}</p>
+        <div
+            class="task-card"
+            draggable="true"
+            @dragstart.stop="$emit('dragstart', $event)"
+            @click="$emit('click')"
+        >
+            <p class="task-title">{{ task.title }}</p>
+            <!-- 説明文がある場合のみ表示 -->
+            <p v-if="task.description" class="task-description">{{ task.description }}</p>
         </div>
-    `
+    `,
 };
+
+
+
