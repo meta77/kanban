@@ -21,14 +21,14 @@ export default {
                 },
                 {
                     id: 2,
-                    title: '進行中',
+                    title: '目的・目標設計完了',
                     tasks: [
                         { id: 9, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。' },
                     ],
                 },
                 {
                     id: 3,
-                    title: '完了',
+                    title: '進行中',
                     tasks: [
                         { id: 10, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
                     ],
@@ -40,8 +40,15 @@ export default {
                         { id: 11, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
                     ],
                 },
+                {
+                    id: 5,
+                    title: '完了',
+                    tasks: [
+                        { id: 12, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
+                    ],
+                },
             ],
-            nextTaskId: 12,
+            nextTaskId: 13,
             isModalOpen: false,      // モーダルの表示状態
             taskToEdit: null,        // ★編集対象のタスクを保持 (nullの場合は新規追加モード)
             listIdForNewTask: null,  // どのリストに追加するかを保持
