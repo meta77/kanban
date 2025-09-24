@@ -16,12 +16,42 @@ html, body {
     background-color: #f4f7f9;
 }
 
+/* ★★★ここから変更：ヘッダーのスタイル★★★ */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    flex-shrink: 0;
+}
+
 h1 {
     text-align: center;
     color: #333;
     margin: 20px 0;
-    flex-shrink: 0;
 }
+
+
+/* ★★★ここから追加：新しい追加ボタンのスタイル★★★ */
+.global-add-button {
+    padding: 0.7em 2em;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #3a86ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.global-add-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+/* ★★★ここまで追加★★★ */
 
 /* --- カンバンボード全体のコンテナ --- */
 .kanban-board {
@@ -118,28 +148,6 @@ h1 {
     margin: 0;
     white-space: pre-wrap; /* 改行を反映させる */
     word-break: break-word; /* 長い単語でも折り返す */
-}
-
-
-/* --- 新しいタスク追加エリアのスタイル --- */
-.add-task-area {
-    padding: 0 8px 8px 8px;
-    flex-shrink: 0;
-}
-
-.add-task-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #5e6c84;
-    transition: background-color 0.2s;
-}
-
-.add-task-button:hover {
-    background-color: #d6d9dc;
 }
 
 /* --- モーダルのスタイル --- */

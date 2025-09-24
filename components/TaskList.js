@@ -60,15 +60,6 @@ export default {
                 ></task-card>
             </div>
 
-            <!-- ★★★ここから変更：タスク追加エリア★★★ -->
-            <!-- 'TODO'リストの時だけこのエリアを表示 -->
-            <div class="add-task-area" v-if="list.title === 'TODO'">
-                <!-- ★クリック時に親へ 'open-add-task-modal' イベントを送信 -->
-                <div @click="$emit('open-add-task-modal', list.id)" class="add-task-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    <span>カードを追加</span>
-                </div>
-            </div>
         </div>
     `,
 };

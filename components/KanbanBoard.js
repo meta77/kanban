@@ -120,7 +120,14 @@ export default {
     // コンポーネントのテンプレート (HTML)
     template: `
         <div class="kanban-board-container">
-            <h1>Vue.js カンバンボード</h1>
+            <div class="main-header">
+                <h1>Vue.js カンバンボード</h1>
+                <!-- TODOリスト(id:1)にタスクを追加するボタン -->
+                <button @click="handleOpenAddModal(1)" class="global-add-button">追加</button>
+            </div>
+
+
+
             <div class="kanban-board">
                 <task-list
                     v-for="list in lists"
