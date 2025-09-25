@@ -16,6 +16,7 @@ html, body {
     background-color: #f4f7f9;
 }
 
+/* ★★★ここから変更：ヘッダーのスタイル★★★ */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -30,6 +31,8 @@ h1 {
     margin: 20px 0;
 }
 
+
+/* ★★★ここから追加：新しい追加ボタンのスタイル★★★ */
 .global-add-button {
     padding: 0.7em 2em;
     font-size: 16px;
@@ -48,6 +51,7 @@ h1 {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+/* ★★★ここまで追加★★★ */
 
 /* --- カンバンボード全体のコンテナ --- */
 .kanban-board {
@@ -82,7 +86,7 @@ h1 {
 .task-list-header h2 {
     font-size: 18px;
     color: #333;
-    padding: 0.2em 0.5em;
+    padding: 0.25em 0.5em;
     border-left: solid 5px #7db4e6;
     margin: 0;
 }
@@ -116,10 +120,11 @@ h1 {
     padding: 15px;
     margin-bottom: 10px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    cursor: pointer;
+    cursor: pointer; /* ★カーソルをポインターに変更 */
     transition: box-shadow 0.2s, background-color 0.2s;
 }
 
+/* ★ホバー時のスタイルを追加 */
 .task-card:hover {
     background-color: #f8f9fa;
 }
@@ -129,28 +134,21 @@ h1 {
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* ★追加：カード内のタイトルのスタイル */
 .task-title {
     font-weight: 500;
     color: #172b4d;
     margin: 0 0 8px 0;
-    word-break: break-word;
 }
 
-/* ★★★ここから追加：締切日のスタイル★★★ */
-.task-deadline {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
+/* ★追加：カード内の説明文のスタイル */
+.task-description {
+    font-size: 14px;
     color: #5e6c84;
-    margin-top: 10px;
+    margin: 0;
+    white-space: pre-wrap; /* 改行を反映させる */
+    word-break: break-word; /* 長い単語でも折り返す */
 }
-
-.task-deadline svg {
-    flex-shrink: 0;
-}
-/* ★★★ここまで追加★★★ */
-
 
 /* --- モーダルのスタイル --- */
 .modal-overlay {
@@ -212,25 +210,10 @@ h1 {
     transition: border-color 0.2s;
 }
 
-/* ★★★ここから追加：日付入力のスタイル★★★ */
-.date-input {
-    width: 100%;
-    padding: 10px 12px;
-    font-size: 15px;
-    border-radius: 5px;
-    border: 2px solid #ddd;
-    box-sizing: border-box;
-    font-family: inherit;
-    transition: border-color 0.2s;
-}
-
-.date-input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: #007bff;
 }
-/* ★★★ここまで追加★★★ */
-
 
 .form-actions-modal {
     display: flex;

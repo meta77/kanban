@@ -9,39 +9,58 @@ export default {
                     id: 1,
                     title: 'TODO',
                     tasks: [
-                        { id: 1, title: 'デザインの初期案を作成', description: 'メインページのワイヤーフレームとモックアップを作成する。', deadline: '2025-10-05' },
-                        { id: 2, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
+                        { id: 1, title: 'デザインの初期案を作成', description: 'メインページのワイヤーフレームとモックアップを作成する。' },
+                        { id: 2, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 3, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 4, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 5, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 6, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 7, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
+                        { id: 8, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。' },
                     ],
                 },
                 {
                     id: 2,
-                    title: '進行中',
+                    title: '目的・目標設計完了',
                     tasks: [
-                        { id: 3, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。', deadline: '2025-09-30' },
+                        { id: 9, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。' },
                     ],
                 },
                 {
                     id: 3,
+                    title: '進行中',
+                    tasks: [
+                        { id: 10, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
+                    ],
+                },
+                {
+                    id: 4,
+                    title: 'Hold',
+                    tasks: [
+                        { id: 11, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
+                    ],
+                },
+                {
+                    id: 5,
                     title: '完了',
                     tasks: [
-                        { id: 4, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
+                        { id: 12, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。' },
                     ],
                 },
             ],
-            nextTaskId: 5,
+            nextTaskId: 13,
             isModalOpen: false,      // モーダルの表示状態
-            taskToEdit: null,        // 編集対象のタスクを保持 (nullの場合は新規追加モード)
+            taskToEdit: null,        // ★編集対象のタスクを保持 (nullの場合は新規追加モード)
             listIdForNewTask: null,  // どのリストに追加するかを保持
 
-            // モーダル内のフォームと連携するデータ
+            // ★モーダル内のフォームと連携するデータ
             modalTitle: '',
             modalDescription: '',
-            modalDeadline: '', // ★締切日用のデータを追加
         };
     },
     // コンポーネントが持つメソッド
     methods: {
-        // タスクの保存処理（新規・編集を兼ねる）
+        // ★タスクの保存処理（新規・編集を兼ねる）
         handleSaveTask() {
             if (this.modalTitle.trim() === '') return;
 
@@ -49,7 +68,6 @@ export default {
                 // 編集モードの場合
                 this.taskToEdit.title = this.modalTitle;
                 this.taskToEdit.description = this.modalDescription;
-                this.taskToEdit.deadline = this.modalDeadline || null; // ★締切日を更新
             } else {
                 // 新規追加モードの場合
                 const targetList = this.lists.find(list => list.id === this.listIdForNewTask);
@@ -58,7 +76,6 @@ export default {
                         id: this.nextTaskId++,
                         title: this.modalTitle,
                         description: this.modalDescription,
-                        deadline: this.modalDeadline || null, // ★締切日を追加
                     });
                 }
             }
@@ -76,21 +93,19 @@ export default {
                 toList.tasks.push(movedTask);
             }
         },
-        // 「新規追加」モーダルを開くメソッド
+        // ★「新規追加」モーダルを開くメソッド
         handleOpenAddModal(listId) {
             this.taskToEdit = null;
             this.listIdForNewTask = listId;
             this.modalTitle = '';
             this.modalDescription = '';
-            this.modalDeadline = ''; // ★リセット
             this.isModalOpen = true;
         },
-        // 「編集」モーダルを開くメソッド
+        // ★「編集」モーダルを開くメソッド
         handleOpenEditModal(task) {
             this.taskToEdit = task;
             this.modalTitle = task.title;
             this.modalDescription = task.description;
-            this.modalDeadline = task.deadline; // ★既存の締切日をセット
             this.isModalOpen = true;
         },
         // モーダルを閉じるメソッド
@@ -100,7 +115,6 @@ export default {
             this.listIdForNewTask = null;
             this.modalTitle = '';
             this.modalDescription = '';
-            this.modalDeadline = ''; // ★リセット
         },
     },
     // コンポーネントのテンプレート (HTML)
@@ -108,8 +122,11 @@ export default {
         <div class="kanban-board-container">
             <div class="main-header">
                 <h1>Vue.js カンバンボード</h1>
+                <!-- TODOリスト(id:1)にタスクを追加するボタン -->
                 <button @click="handleOpenAddModal(1)" class="global-add-button">追加</button>
             </div>
+
+
 
             <div class="kanban-board">
                 <task-list
@@ -122,9 +139,10 @@ export default {
                 ></task-list>
             </div>
 
-            <!-- タスク追加・編集モーダル -->
+            <!-- ★★★タスク追加・編集モーダル★★★ -->
             <div v-if="isModalOpen" class="modal-overlay" @click.self="handleCloseModal">
                 <div class="modal-content">
+                    <!-- モードに応じてタイトルを動的に変更 -->
                     <h2>{{ taskToEdit ? 'タスクを編集' : '新しいタスクを追加' }}</h2>
                     <form @submit.prevent="handleSaveTask" class="modal-form">
                         <div class="form-group">
@@ -135,14 +153,9 @@ export default {
                             <label for="task-description">説明</label>
                             <textarea id="task-description" v-model="modalDescription" placeholder="タスクの詳細を入力..."></textarea>
                         </div>
-                        <!-- ★★★ここから追加：締切日入力フォーム★★★ -->
-                        <div class="form-group">
-                            <label for="task-deadline">締切日</label>
-                            <input type="date" id="task-deadline" v-model="modalDeadline" class="date-input">
-                        </div>
-                        <!-- ★★★ここまで追加★★★ -->
                         <div class="form-actions-modal">
                             <button type="button" @click="handleCloseModal" class="button-cancel">キャンセル</button>
+                            <!-- モードに応じてボタンテキストを動的に変更 -->
                             <button type="submit" class="button-solid">{{ taskToEdit ? '保存' : 'タスクを追加' }}</button>
                         </div>
                     </form>
