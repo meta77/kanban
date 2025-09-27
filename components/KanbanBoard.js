@@ -89,6 +89,31 @@ export default {
                 toList.tasks.push(movedTask);
             }
         },
+        handleReorderTask({ listId, draggedTaskId, targetTaskId }) {
+            // 対象のリストを見つける
+            const list = this.lists.find(l => l.id === listId);
+            if (!list) return;
+
+            // ドラッグしたタスクとその元の位置(index)を見つける
+            const draggedItemIndex = list.tasks.findIndex(t => t.id === draggedTaskId);
+            if (draggedItemIndex === -1) return;
+
+            // 1. ドラッグしたタスクを一度リストから削除
+            const [draggedItem] = list.tasks.splice(draggedItemIndex, 1);
+
+            // ドロップ先のタスクの位置(index)を見つける
+            const targetItemIndex = list.tasks.findIndex(t => t.id === targetTaskId);
+            if (targetItemIndex === -1) {
+                // 万が一ドロップ先が見つからなければ、元の位置に戻す
+                list.tasks.splice(draggedItemIndex, 0, draggedItem);
+                return;
+            }
+
+            // 2. ドロップ先のタスクの前に、ドラッグしたタスクを挿入
+            list.tasks.splice(targetItemIndex, 0, draggedItem);
+        },
+
+
         // 「新規追加」モーダルを開くメソッド
         handleOpenAddModal(listId) {
             this.taskToEdit = null;
@@ -132,6 +157,7 @@ export default {
                     @open-add-task-modal="handleOpenAddModal"
                     @open-edit-task-modal="handleOpenEditModal"
                     @move-task="handleMoveTask"
+                    @reorder-task="handleReorderTask"
                 ></task-list>
             </div>
 

@@ -8,35 +8,54 @@ export default {
     data() {
         return {
             isDragOver: false,
+            // ★ドラッグ中のカードがどのカードの上にあるかを保持
+            draggedOverTaskId: null,
         };
     },
     methods: {
-        // ドラッグ開始時の処理
         handleDragStart(event, task) {
             event.dataTransfer.effectAllowed = 'move';
-            // ドラッグするタスクの情報をセット
             event.dataTransfer.setData('text/plain', JSON.stringify({
                 taskId: task.id,
                 fromListId: this.list.id,
             }));
         },
-        // 要素がドロップゾーン上にある間の処理
         handleDragOver() {
             this.isDragOver = true;
         },
-        // ドロップ時の処理
+        // ★ドロップ時の処理を更新
         handleDrop(event) {
-            this.isDragOver = false;
             const data = JSON.parse(event.dataTransfer.getData('text/plain'));
-            // 親コンポーネントに 'move-task' イベントを送信
-            this.$emit('move-task', {
-                ...data,
-                toListId: this.list.id,
-            });
+            const toListId = this.list.id;
+
+            // 同じリスト内でのドロップかを判定
+            if (data.fromListId === toListId) {
+                // 同じリストなら「並び替え」イベントを発生させる
+                // ドロップ先のカードがあり、かつ自分自身の上ではない場合
+                if (this.draggedOverTaskId && this.draggedOverTaskId !== data.taskId) {
+                    this.$emit('reorder-task', {
+                        listId: toListId,
+                        draggedTaskId: data.taskId,
+                        targetTaskId: this.draggedOverTaskId,
+                    });
+                }
+            } else {
+                // 違うリストなら、これまで通り「移動」イベントを発生させる
+                this.$emit('move-task', { ...data, toListId });
+            }
+
+            // 状態をリセット
+            this.isDragOver = false;
+            this.draggedOverTaskId = null;
         },
-        // ドラッグ中の要素がドロップゾーンから離れたときの処理
         handleDragLeave() {
             this.isDragOver = false;
+        },
+        // ★ドラッグ中の要素が他のカードの上に入ったときの処理
+        handleDragEnterTask(targetTask) {
+            if (this.draggedOverTaskId !== targetTask.id) {
+                this.draggedOverTaskId = targetTask.id;
+            }
         },
     },
     template: `
@@ -57,12 +76,13 @@ export default {
                     :task="task"
                     @dragstart="handleDragStart($event, task)"
                     @click="$emit('open-edit-task-modal', task)"
+                    @dragenter-task="handleDragEnterTask(task)"
                 ></task-card>
             </div>
-
         </div>
     `,
 };
+
 
 //  @click="$emit('open-edit-task-modal', task)"
 // イベント（$emit）で渡されているのは、taskオブジェクトを指し示すメモリアドレス（鍵の情報）のコピーなのです。
