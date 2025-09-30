@@ -39,8 +39,22 @@ export default {
                         { id: 9, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
                     ],
                 },
+                {
+                    id: 4,
+                    title: 'Hold',
+                    tasks: [
+                        { id: 18, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
+                    ],
+                },
+                {
+                    id: 5,
+                    title: 'Hold',
+                    tasks: [
+                        { id: 19, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
+                    ],
+                },
             ],
-            nextTaskId: 18,
+            nextTaskId: 20,
             isModalOpen: false,      // モーダルの表示状態
             taskToEdit: null,        // 編集対象のタスクを保持 (nullの場合は新規追加モード)
             listIdForNewTask: null,  // どのリストに追加するかを保持
