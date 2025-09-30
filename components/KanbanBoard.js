@@ -27,14 +27,14 @@ export default {
                 },
                 {
                     id: 2,
-                    title: '進行中',
+                    title: '目的・目標定義',
                     tasks: [
                         { id: 8, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。', deadline: '2025-09-30' },
                     ],
                 },
                 {
                     id: 3,
-                    title: '完了',
+                    title: '進行中',
                     tasks: [
                         { id: 9, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
                     ],
@@ -48,7 +48,7 @@ export default {
                 },
                 {
                     id: 5,
-                    title: 'Hold',
+                    title: '完了',
                     tasks: [
                         { id: 19, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
                     ],
