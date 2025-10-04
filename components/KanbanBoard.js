@@ -15,28 +15,28 @@ export default {
                         { id: 5, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 6, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 7, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
+                        { id: 8, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
+                        { id: 9, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 10, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 11, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 12, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 13, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 14, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 15, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
-                        { id: 16, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
-                        { id: 17, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                     ],
                 },
                 {
                     id: 2,
                     title: '目的・目標定義',
                     tasks: [
-                        { id: 8, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。', deadline: '2025-09-30' },
+                        { id: 16, title: '開発環境のセットアップ', description: 'Vue.jsプロジェクトの基本的な設定とライブラリの導入を行う。', deadline: '2025-09-30' },
                     ],
                 },
                 {
                     id: 3,
                     title: '進行中',
                     tasks: [
-                        { id: 9, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
+                        { id: 17, title: 'プロジェクトの要件定義', description: 'クライアントと打ち合わせを行い、要件をまとめた。', deadline: null },
                     ],
                 },
                 {
@@ -54,7 +54,7 @@ export default {
                     ],
                 },
             ],
-            nextTaskId: 20,
+            // nextTaskId: 20,
             isModalOpen: false,      // モーダルの表示状態
             taskToEdit: null,        // 編集対象のタスクを保持 (nullの場合は新規追加モード)
             listIdForNewTask: null,  // どのリストに追加するかを保持
@@ -64,6 +64,20 @@ export default {
             modalDescription: '',
             modalDeadline: '', // ★締切日用のデータを追加
         };
+    },
+
+    computed:{
+        nextTaskId() {
+            // reduceメソッドを使って、全リストのタスク数を合計する
+            totalTaskCount = this.lists.reduce((total, list) => {
+                // 現在の合計値(total)に、現在のリストのタスク数(list.tasks.length)を加算する
+                return total + list.tasks.length;
+            }, 0); // 初期値として0を設定
+
+            return totalTaskCount + 1
+        }
+
+
     },
     // コンポーネントが持つメソッド
     methods: {
