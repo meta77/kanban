@@ -158,7 +158,7 @@ export default {
     template: `
         <div class="kanban-board-container">
             <div class="main-header">
-                <h1>Vue.js カンバンボード</h1>
+                <h1>B-Tasks</h1>
                 <button @click="handleOpenAddModal(1)" class="global-add-button">追加</button>
             </div>
 
