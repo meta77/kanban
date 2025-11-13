@@ -85,4 +85,4 @@ export default {
 
 
 //  @click="$emit('open-edit-task-modal', task)"
-// イベント（$emit）で渡されているのは、taskオブジェクトを指し示すメモリアドレス（鍵の情報）のコピーなのです。
+// イベント（$emit）で渡されているのは、taskオブジェクトを指し示すメモリアドレス（鍵の情報）のコピー。
