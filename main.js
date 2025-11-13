@@ -18,7 +18,7 @@ KanbanBoard (ルートコンポーネント、一番の親)
 
 
 // 各コンポーネントをグローバルに登録
-// どのコンポーネントのテンプレート内でもこれらタグが使えるようになる
+// どのコンポーネントのテンプレート内からでもこれらタグが使えるようになる
 app.component('task-list', TaskList);
 app.component('task-card', TaskCard);
 
