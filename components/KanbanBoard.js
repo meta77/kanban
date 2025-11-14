@@ -192,7 +192,7 @@ export default {
                             <label for="task-deadline">締切日</label>
                             <input type="date" id="task-deadline" v-model="modalDeadline" class="date-input">
                         </div>
-                        <!-- ★★★ここまで追加★★★ -->
+
                         <div class="form-actions-modal">
                             <button type="button" @click="handleCloseModal" class="button-cancel">キャンセル</button>
                             <button type="submit" class="button-solid">{{ taskToEdit ? '保存' : 'タスクを追加' }}</button>
