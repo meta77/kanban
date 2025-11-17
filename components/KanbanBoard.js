@@ -187,7 +187,7 @@ export default {
                             <label for="task-description">説明</label>
                             <textarea id="task-description" v-model="modalDescription" placeholder="タスクの詳細を入力..."></textarea>
                         </div>
-                        <!-- ★★★ここから追加：締切日入力フォーム★★★ -->
+                        
                         <div class="form-group">
                             <label for="task-deadline">締切日</label>
                             <input type="date" id="task-deadline" v-model="modalDeadline" class="date-input">
