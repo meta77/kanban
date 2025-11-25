@@ -64,7 +64,6 @@ export default {
             modalDeadline: '', // ★締切日用のデータを追加
         };
     },
-    // コンポーネントが持つメソッド
     methods: {
         // タスクの保存処理（新規・編集を兼ねる）
         handleSaveTask() {
