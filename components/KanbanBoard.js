@@ -152,7 +152,6 @@ export default {
             this.modalDeadline = ''; // ★リセット
         },
     },
-    // コンポーネントのテンプレート (HTML)
     template: `
         <div class="kanban-board-container">
             <div class="main-header">
