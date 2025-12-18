@@ -61,7 +61,7 @@ export default {
             // モーダル内のフォームと連携するデータ
             modalTitle: '',
             modalDescription: '',
-            modalDeadline: '', // ★締切日用のデータを追加
+            modalDeadline: '', 
         };
     },
     methods: {
