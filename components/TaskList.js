@@ -51,7 +51,7 @@ export default {
         handleDragLeave() {
             this.isDragOver = false;
         },
-        // ★ドラッグ中の要素が他のカードの上に入ったときの処理
+        // ドラッグ中の要素が他のカードの上に入ったときの処理
         handleDragEnterTask(targetTask) {
             if (this.draggedOverTaskId !== targetTask.id) {
                 this.draggedOverTaskId = targetTask.id;
