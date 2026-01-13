@@ -7,7 +7,7 @@ export default {
                     id: 1,
                     title: 'TODO',
                     tasks: [
-                        { id: 1, title: 'デザインの初期案を作成', description: 'メインページのワイヤーフレームとモックアップを作成する。', deadline: '2025-10-05' },
+                        { id: 1, title: '「期待値の確認」列を追加すべきか', description: 'メインページのワイヤーフレームとモックアップを作成する。', deadline: '2025-10-05' },
                         { id: 2, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 3, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
                         { id: 4, title: 'APIエンドポイントの設計', description: 'タスク管理に必要なAPIの仕様を決定する。', deadline: null },
@@ -61,7 +61,7 @@ export default {
             // モーダル内のフォームと連携するデータ
             modalTitle: '',
             modalDescription: '',
-            modalDeadline: '', 
+            modalDeadline: '',
         };
     },
     methods: {
